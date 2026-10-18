@@ -2276,6 +2276,7 @@ dependencies = [
     { name = "pytest" },
     { name = "python-dotenv" },
     { name = "rank-bm25" },
+    { name = "tiktoken" },
     { name = "uvicorn" },
 ]
 
@@ -2300,6 +2301,7 @@ requires-dist = [
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
     { name = "rank-bm25", specifier = ">=0.2.2" },
+    { name = "tiktoken", specifier = ">=0.14.0" },
     { name = "uvicorn", specifier = ">=0.40.0" },
 ]
 
