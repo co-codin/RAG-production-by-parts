@@ -17,3 +17,8 @@ venv/
 Thumbs.db
 .claude
 chroma_db/
+# GraphRAG generated artifacts
+graphrag_demo/output/
+graphrag_demo/cache/
+graphrag_demo/logs/
+graphrag_demo/index.log

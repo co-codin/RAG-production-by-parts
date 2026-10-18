@@ -1,0 +1,25 @@
+Nordwave Robotics: A Year of Change
+
+Nordwave Robotics is a mid-sized robotics company headquartered in Berlin, with engineering offices in Warsaw and Lisbon. The company was founded in 2015 by Helena Brandt, who still serves as Chief Executive Officer. Nordwave builds autonomous warehouse robots and sells them to logistics firms across Europe.
+
+Helena Brandt reports to the board of directors, which is chaired by Marcus Feld, an early investor from Hamburg. Marcus Feld also sits on the board of Feldstein Capital, the venture fund that led Nordwave's Series B round in 2021.
+
+The Engineering department is led by Chief Technology Officer Tomasz Nowak, who works from the Warsaw office. Tomasz joined Nordwave in 2017 after leaving a research position at the Warsaw University of Technology. Under Tomasz there are two main teams: the Perception team and the Fleet Software team.
+
+The Perception team is run by Dr. Ana Ribeiro in Lisbon. Ana's team develops the computer vision models that let the robots recognize shelves, pallets and people. Ana previously studied under Professor Jan Kowalski at the Warsaw University of Technology, which is how she first met Tomasz Nowak. Ana's most important engineer is Rui Costa, who designed the depth-sensing pipeline used in every Nordwave robot.
+
+The Fleet Software team is led by Lukas Meier in Berlin. Fleet Software builds Atlas, the cloud platform that coordinates hundreds of robots inside a single warehouse. Atlas depends on the vision models from the Perception team: if the models misclassify an obstacle, Atlas reroutes the robot. Lukas Meier and Ana Ribeiro meet every week to align the two teams' roadmaps.
+
+The company's flagship project in 2024 is Project Orion, a new generation of robot that can pick individual items rather than whole pallets. Project Orion is sponsored by Helena Brandt and technically owned by Tomasz Nowak. Rui Costa is the lead engineer on Orion's grasping system, and Atlas must be extended to schedule item-level picking tasks. The first customer for Orion is Baltic Freight, a logistics company based in Gdansk.
+
+Baltic Freight's Chief Operations Officer, Piotr Zielinski, negotiated the Orion pilot contract with Nordwave's Head of Sales, Sofia Lindqvist. Sofia works from the Berlin headquarters and reports directly to Helena Brandt. Sofia previously worked at Feldstein Capital as an analyst, where she first evaluated Nordwave as an investment and later decided to join the company.
+
+The Operations department, led by Clara Weiss in Berlin, manages manufacturing. Nordwave's robots are assembled by a contract manufacturer, Precision Works, in Wroclaw. Clara Weiss negotiated the manufacturing agreement with Precision Works' owner, Henryk Mazur. Because Orion requires a new gripper component, Precision Works must source parts from a supplier in Lisbon called GripTech, a small company founded by Rui Costa's former classmate Ines Duarte.
+
+In the spring of 2024, Project Orion ran into trouble. Tests at the Baltic Freight warehouse in Gdansk showed that the vision models confused shiny plastic packaging with empty space. Ana Ribeiro's Perception team had to retrain the models with new data collected in Gdansk. The delay meant that Lukas Meier's Atlas team could not finish the scheduling features on time, and Sofia Lindqvist had to renegotiate the pilot timeline with Piotr Zielinski.
+
+To recover, Helena Brandt created a cross-team task force called the Orion Recovery Group. It is chaired by Tomasz Nowak and includes Ana Ribeiro, Lukas Meier, Rui Costa and Clara Weiss. The group meets in Warsaw every two weeks. Tomasz also asked Professor Jan Kowalski to advise the team on new vision techniques, and the Warsaw University of Technology agreed to a research partnership with Nordwave.
+
+By the autumn of 2024 the retrained models were working, GripTech had delivered the first batch of grippers to Precision Works, and the Orion pilot in Gdansk restarted. Baltic Freight signed a letter of intent to order fifty Orion robots in 2025. Marcus Feld told the board that Feldstein Capital was prepared to lead a Series C round to fund Orion's expansion to other customers in Scandinavia.
+
+Not everything was resolved. Lukas Meier warned that Atlas was reaching its scaling limits and would need a major rewrite to support more than five hundred robots per warehouse. Clara Weiss raised concerns that relying on a single small supplier, GripTech, was a risk to Orion's production schedule. Helena Brandt asked Tomasz Nowak and Clara Weiss to present a plan for both issues at the next board meeting in Berlin.
