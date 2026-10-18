@@ -104,7 +104,7 @@ def demo_ensemble_hybrid_search():
 
     vectorstore = create_base_vectorstore()
 
-    bm25_retriever = BM25Retriever.from_llm(TECH_DOCS)
+    bm25_retriever = BM25Retriever.from_documents(TECH_DOCS)
     bm25_retriever.k = 3
 
     semantic_retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
