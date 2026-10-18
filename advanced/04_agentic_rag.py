@@ -4,7 +4,6 @@ from operator import add
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_chroma import Chroma
-from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.documents import Document
 
@@ -71,20 +70,29 @@ def create_sample_vectorstore():
 
     vectorstore = Chroma.from_documents(
         documents=documents,
-        embeddings=embeddings,
+        embedding=embeddings,
         collection_name="agentic_rag_demo"
     )
 
     return vectorstore
+
+_VECTORSTORE = None
+
+
+def get_vectorstore():
+    """Create the vector store once and reuse it for every retrieval."""
+    global _VECTORSTORE
+    if _VECTORSTORE is None:
+        _VECTORSTORE = create_sample_vectorstore()
+    return _VECTORSTORE
+
 
 def retrieve_documents(state: RAGState) -> dict:
     query = state.get("rewritten_query") or state["query"]
 
     print(f"\n[RETRIEVE] Searching for: '{query}'")
 
-    vectorstore = state.get("_vectorstore")
-    if not vectorstore:
-        vectorstore = create_sample_vectorstore()
+    vectorstore = get_vectorstore()
 
     retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
     documents = retriever.invoke(query)
@@ -154,8 +162,11 @@ Relevance score (0-1):""",
         if score >= 0.5:  # Keep documents with score >= 0.5
             relevant_docs.append(doc)
 
-    avg_score = sum(scores) / len(scores) if scores else 0
-    print(f"[GRADE] Average relevance: {avg_score:.2f}")
+    # Score only the documents we keep: one great doc plus two off-topic ones
+    # is a good retrieval, so averaging over everything would trigger needless rewrites.
+    kept_scores = [s for s in scores if s >= 0.5]
+    avg_score = sum(kept_scores) / len(kept_scores) if kept_scores else 0
+    print(f"[GRADE] Average relevance of kept docs: {avg_score:.2f}")
     print(f"[GRADE] Keeping {len(relevant_docs)}/{len(documents)} documents")
 
     return {"documents": relevant_docs, "relevance_score": avg_score}
@@ -341,7 +352,7 @@ def run_demo():
 
     # Create vector store
     print("\nSetting up vector store...")
-    vectorstore = create_sample_vectorstore()
+    vectorstore = get_vectorstore()
 
     # Build the graph
     print("Building agentic RAG graph...")
@@ -368,7 +379,6 @@ def run_demo():
             "relevance_score": 0.0,
             "retry_count": 0,
             "max_retries": 2,
-            "_vectorstore": vectorstore,  # Pass vectorstore via state
         }
 
         result = app.invoke(initial_state)
