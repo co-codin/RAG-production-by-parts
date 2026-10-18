@@ -18,6 +18,7 @@ dependencies = [
     "langgraph>=1.0.7",
     "langgraph-checkpoint-sqlite>=3.0.3",
     "langsmith>=0.14.2",
+    "networkx>=3.7",
     "numpy>=2.5.3",
     "ollama>=0.6.3",
     "pypdf>=6.6.2",
